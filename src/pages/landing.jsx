@@ -22,7 +22,7 @@ const LandingPage = () => {
           </h2>
           <div className="flex gap-4 text-white font-medium">
             <p
-              onClick={() => router("/aljk23")}
+              onClick={() => router("/meetu")}
               className="cursor-pointer hover:text-orange-500 transition"
             >
               Join as Guest
