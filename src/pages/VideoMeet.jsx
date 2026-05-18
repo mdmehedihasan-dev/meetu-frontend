@@ -12,37 +12,23 @@ import ScreenShareIcon from "@mui/icons-material/ScreenShare";
 import StopScreenShareIcon from "@mui/icons-material/StopScreenShare";
 import ChatIcon from "@mui/icons-material/Chat";
 import server from "../environment";
-
 const server_url = server;
-
 var connections = {};
-
 const peerConfigConnections = {
   iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
 };
-
 const VideoMeetComponent = () => {
   var socketRef = useRef();
   let socketIdRef = useRef();
-
   let localVideoref = useRef();
-
   let [videoAvailable, setVideoAvailable] = useState(true);
-
   let [audioAvailable, setAudioAvailable] = useState(true);
-
   let [video, setVideo] = useState([]);
-
   let [audio, setAudio] = useState();
-
   let [screen, setScreen] = useState();
-
   let [showModal, setModal] = useState(false);
-
   let [screenAvailable, setScreenAvailable] = useState();
-
   let [messages, setMessages] = useState([]);
-
   let [message, setMessage] = useState("");
 
   let [newMessages, setNewMessages] = useState(3);
