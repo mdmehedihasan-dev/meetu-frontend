@@ -164,15 +164,12 @@ const VideoMeetComponent = () => {
           } catch (e) {
             console.log(e);
           }
-
           let blackSilence = (...args) =>
             new MediaStream([black(...args), silence()]);
           window.localStream = blackSilence();
           localVideoref.current.srcObject = window.localStream;
-
           for (let id in connections) {
             connections[id].addStream(window.localStream);
-
             connections[id].createOffer().then((description) => {
               connections[id]
                 .setLocalDescription(description)
