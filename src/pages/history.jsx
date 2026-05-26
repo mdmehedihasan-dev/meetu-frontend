@@ -10,9 +10,7 @@ import HomeIcon from '@mui/icons-material/Home';
 const History = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
-
   const { data: meetings = [], error, isLoading } = useGetUserHistoryQuery(token);
-
   let formatDate = (dateString) => {
     const date = new Date(dateString);
     const day = date.getDate().toString().padStart(2, '0');
@@ -20,16 +18,13 @@ const History = () => {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
-
   return (
     <div>
       <IconButton onClick={() => navigate('/home')}>
        Back to Home <HomeIcon />
       </IconButton>
-
       {isLoading && <Typography>Loading history...</Typography>}
       {error && <Typography color="error">Failed to load history.</Typography>}
-
       {meetings.length > 0 ? (
         meetings.map((e, i) => (
           <Card key={i} variant="outlined" sx={{ mb: 2 }}>
